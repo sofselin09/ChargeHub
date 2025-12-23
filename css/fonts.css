@@ -21,6 +21,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Urbanist';
     src: url(/fonts/Urbanist-ExtraLight.woff2) format(woff2);
@@ -28,6 +29,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Urbanist';
     src: url(fonts/Urbanist-Light.woff2) format(woff2);
@@ -35,6 +37,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Urbanist';
     src: url(fonts/Urbanist-Black.woff2) format(woff2);
@@ -42,6 +45,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Urbanist';
     src: url(fonts/Urbanist-SemiBold.woff2) format(woff2);
@@ -49,27 +53,11 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Urbanist';
     src: url(fonts/Urbanist-Thin.woff2) format(woff2);
     font-weight: 100;
     font-style: normal;
     font-display: swap;
-}
-body {
-    margin: 0;
-    background-color: #000;
-}
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav-list {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
 }
