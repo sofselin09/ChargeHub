@@ -4,16 +4,11 @@
     box-sizing: border-box;
 }
 
-html,
 body {
-    height: 100%;
-}
-
-body {
-    font-family: 'Urbanist';
-    line-height: 1.5;
-    color: aliceblue;
+    font-family: 'Urbanist', sans-serif;
     background-color: black;
+    color: white;
+    line-height: 1.5;
 }
 
 header {
@@ -28,47 +23,100 @@ header {
 .nav {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 20rem;
-    padding: 0 2rem;
-    flex-wrap:wrap;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+.nav img {
+    max-width: clamp(100px, 12vw, 150px);
+    height: auto;
 }
 
 .nav-list {
     display: flex;
-    gap: 15rem;
+    flex: 1;
+    justify-content: space-between;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    flex-wrap: wrap;
+    margin-left: clamp(2rem, 10vw, 10rem);
+    padding-right: clamp(1rem, 6vw, 5rem);
 }
+
 .nav-list li a {
     color: white;
     text-decoration: none;
     font-family: 'Urbanist', sans-serif;
     font-weight: 300;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
+
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 0 1.5rem;
+        gap: 1rem;
+    }
+
+    .nav-list {
+        margin-left: 2rem;
+        padding-right: 1rem;
+        gap: 1.5rem;
+        justify-content: space-between;
+    }
+
+    .nav-list li a {
+        font-size: 0.95rem;
+    }
+
+    .nav img {
+        max-width: 140px;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+        padding-right: 0;
+        width: 100%;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .nav-list li a {
+        font-size: 0.85rem;
+    }
+
+    .nav img {
+        max-width: 100px;
+    }
+}
+
 .section-wrapper {
-    min-height: auto;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 96px;
-    padding-bottom: 0;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: clamp(48px, 8vw, 96px) 24px 0;
     background: black;
 }
+
 .section-1 {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    height: 1260px;
-    aspect-ratio: 16/9;
+
+    min-height: clamp(1100px, 70vh, 2000px);
+    aspect-ratio: 16 / 9;
 
     border: 5px solid rgba(160, 201, 151);
     border-radius: 32px;
-
     background: black;
     overflow: hidden;
 }
@@ -79,7 +127,7 @@ header {
     padding: clamp(32px, 5vw, 64px);
     max-width: 700px;
     margin-left: 0;
-    padding-top: 30;
+    padding-top: 30px;
 }
 
 .Header-1 {
@@ -87,7 +135,7 @@ header {
     font-weight: 600;
     color: white;
     line-height: 1.1;
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
 }
 
 .Text {
@@ -96,7 +144,7 @@ header {
     font-weight: 300;
     color: white;
     line-height: 1.4;
-    font-size: 1.75rem;
+    font-size: clamp(1.1rem, 3vw, 1.75rem);
 }
 
 .energy-circles {
@@ -111,35 +159,102 @@ header {
     border-radius: 50%;
     border: 5px solid rgba(160, 201, 151);
 
-    top: auto;
-    bottom: 0%;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.circle-1 {width: 90%;}
-.circle-2 {width: 80%;}
-.circle-3 {width: 70%;}
-.circle-4 {width: 55%;}
-.circle-5 {width: 43%;}
+.circle-1 {width: 80%;}
+.circle-2 {width: 70%;}
+.circle-3 {width: 60%;}
+.circle-4 {width: 45%;}
+.circle-5 {width: 33%;}
 
 .center {
     position: absolute;
-    bottom: -5px;
-    left: 50%;
+    bottom: -2%;
+    left: 54%;
     transform: translateX(-50%);
-    z-index: 3;
-    width: 45%;
     width: 45%;
 }
 
 .center img {
     display: block;
-    width: 100%;
+    width: 80%;
     height: auto;
 }
 
 
+@media (max-width: 768px) {
+    .section-1 {
+        min-height: clamp(900px, 80vh, 1600px);
+        padding: clamp(24px, 5vw, 48px);
+    }
+
+    .container-1 {
+        max-width: 90%;
+        padding: clamp(16px, 4vw, 32px);
+    }
+
+    .Header-1 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+
+    .Text {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+
+    .circle-1 {width: 75%;}
+    .circle-2 {width: 65%;}
+    .circle-3 {width: 55%;}
+    .circle-4 {width: 40%;}
+    .circle-5 {width: 30%;}
+
+    .circle,
+    .center {
+        bottom: 0;
+    }
+
+    .center {
+        width: 85%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .section-1 {
+        min-height: clamp(700px, 90vh, 1400px);
+        padding: clamp(16px, 5vw, 32px);
+    }
+
+    .container-1 {
+        max-width: 95%;
+        padding: clamp(12px, 5vw, 24px);
+    }
+
+    .Header-1 {
+        font-size: clamp(1.2rem, 7vw, 2rem);
+    }
+
+    .Text {
+        font-size: clamp(0.9rem, 5vw, 1.25rem);
+    }
+
+    .circle-1 {width: 70%;}
+    .circle-2 {width: 60%;}
+    .circle-3 {width: 50%;}
+    .circle-4 {width: 35%;}
+    .circle-5 {width: 25%;}
+
+    .circle,
+    .center {
+        bottom: 0;
+    }
+
+    .center {
+        width: 90%;
+    }
+}
 
 
 .section-2 {
@@ -150,14 +265,15 @@ header {
     background: black;
     overflow: hidden;
 
-    padding-bottom: 10%;
-    padding-top: 120px;
+    padding: 120px 5% 10%;
+    margin: auto;
 }
+
 .container-2 {
-    padding-left: 23%;
     position: relative;
     z-index: 5;
-    max-width: 700px;
+    max-width: 400px;
+    text-align: left;
 }
 
 
@@ -166,111 +282,244 @@ header {
     font-family: 'Urbanist', sans-serif;
     font-weight: 600;
     line-height: 1.1;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 40px;
 }
 
 .containers-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 40px;
+    gap: clamp(20px, 3vw, 40px);
 
-    padding-left: 22%;
-    padding-top: 5%;
+    padding: 0 2%;
+    flex-wrap: wrap;
 
     max-width: 1400px;
     margin-right: auto;
+    flex-wrap: wrap;
 }
 
 .container-3 {
-    width: 200px;
+    width: clamp(150px, 20%, 200px);
 }
 
 .container-3 img {
-    max-width: 210px;
-    margin-bottom: 48px;
+    max-width: 100%;
+        height: auto;
+        margin-bottom: 48px
 }
 
 .container-3 .Header-3 {
     font-family: 'Urbanist', sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     line-height: 1.3;
-    margin-bottom: 72px;
+    margin-bottom: clamp(30px, 4vw, 72px);
     text-align: left;
     padding-left: 10%;
 }
 
 .container-3 .text-1 {
     font-family: 'Urbanist', sans-serif;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);;
     line-height: 1.4;
-    max-width: 200px;
+    max-width: 100%;
     text-align: left;
     padding-left: 10%;
     font-weight: 300;
+
+    position: relative;
+    top: clamp(20px, 4vw, 50px);
 }
 
 .container-4 {
-    width: 220px;
+    width: clamp(160px, 22%, 220px);
 }
 
 .container-4 img {
-    max-width: 150px;
+    max-width: 65%;
+    height: auto;
     margin-bottom: 40px;
 }
 
 .container-4 .Header-3 {
     font-family: 'Urbanist', sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     line-height: 1.3;
-    margin-bottom: 73px;
+    margin-top: clamp(1px, 1vw,4px);
+    margin-bottom: clamp(30px, 4vw, 73px);
     text-align: left;
 }
 
 .container-4 .text-1 {
     font-family: 'Urbanist', sans-serif;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     line-height: 1.4;
-    max-width: 180px;
+    max-width: 80%;
     text-align: left;
     font-weight: 300;
+    
+    position: relative;
+    top: clamp(20px, 4vw, 50px);
 }
 
 .container-5 {
-    width: 200px;
+    width: clamp(150px, 20%, 200px);
 }
 
 .container-5 img {
     max-width: 100px;
+    height: auto;
     margin-bottom: 30px;
 }
 
 .container-5 .Header-3 {
     font-family: 'Urbanist', sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     line-height: 1.3;
-    margin-bottom: 30px;
+    margin-top: clamp(1px, 1vw, 3px);
+    margin-bottom: clamp(30px, 4vw, 73px);
     text-align: left;
 }
 
 .container-5 .text-1 {
     font-family: 'Urbanist', sans-serif;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     line-height: 1.4;
-    max-width: 170px;
+    max-width: 85%;
     text-align: left;
     font-weight: 300;
 }
 
+
+@media (max-width: 768px) {
+    .section-2 {
+        padding: 100px 5% 8%;
+    }
+
+    .container-2 {
+        max-width: 90%;
+        text-align: center;
+        margin: 0 auto 40px;
+    }
+
+    .Header-2 {
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .containers-row {
+        gap: clamp(15px, 3vw, 30px);
+        justify-content: center;
+    }
+
+    .container-3,
+    .container-4,
+    .container-5 {
+        width: clamp(140px, 28%, 180px);
+        margin-bottom: 40px;
+    }
+
+    .container-3 .Header-3,
+    .container-4 .Header-3,
+    .container-5 .Header-3 {
+        font-size: clamp(1.4rem, 3vw, 1.8rem);
+        margin-bottom: clamp(20px, 3vw, 50px);
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .container-3 .text-1,
+    .container-4 .text-1,
+    .container-5 .text-1 {
+        font-size: clamp(0.95rem, 2.5vw, 1.4rem);
+        max-width: 100%;
+        text-align: center;
+        padding-left: 0;
+        top: clamp(10px, 3vw, 30px);
+    }
+
+    .container-4 img {
+        max-width: 80%;
+        margin: 0 auto 30px;
+    }
+
+    .container-5 img {
+        max-width: 80px;
+        margin: 0 auto 25px;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .section-2 {
+        padding: 80px 5% 6%;
+    }
+
+    .container-2 {
+        max-width: 95%;
+        text-align: center;
+        margin: 0 auto 30px;
+    }
+
+    .Header-2 {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+        margin-bottom: 20px;
+    }
+
+    .containers-row {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .container-3,
+    .container-4,
+    .container-5 {
+        width: 90%;
+        margin-bottom: 25px;
+    }
+
+    .container-3 .Header-3,
+    .container-4 .Header-3,
+    .container-5 .Header-3 {
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
+        margin-bottom: clamp(15px, 3vw, 40px);
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .container-3 .text-1,
+    .container-4 .text-1,
+    .container-5 .text-1 {
+        font-size: clamp(0.9rem, 3vw, 1.3rem);
+        max-width: 100%;
+        text-align: center;
+        padding-left: 0;
+        top: clamp(5px, 3vw, 25px);
+    }
+
+    .container-4 img {
+        max-width: 70%;
+        margin: 0 auto 25px;
+    }
+
+    .container-5 img {
+        max-width: 70px;
+        margin: 0 auto 20px;
+    }
+}
+
 .section-3 {
-    padding: 0px 24px 80px;
+    padding: 0 5% 80px;
     background: black;
 }
 
 .energy-card {
     max-width: 1050px;
     margin: 0 auto;
-    padding: 64px 72px 80px 96px;
+    padding: clamp(32px, 5vw, 64px);
     border-radius: 48px;
 
     background: linear-gradient(135deg,
@@ -282,24 +531,25 @@ header {
 .section-3 .Header-2 {
     font-family: 'Urbanist', sans-serif;
     font-weight: 600;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     line-height: 1.1;
     color: #000;
-    margin-bottom: 56px;
+    margin-bottom: clamp(20px, 3vw, 50px);
+    text-align: left;
 }
 
 .chart-wrapper {
     display: flex;
     align-items: flex-end;
-    gap: 32px;
+    gap: clamp(16px, 2vw, 32px);
+    flex-wrap: wrap;
 }
 
 .chart-area {
     flex: 1;
     position: relative;
-    height: 260px;
-    padding-left: 32px;
-    padding-bottom: 32px;
+    min-height: 260px;
+    padding-left: clamp(16px, 2vw, 32px);;
 }
 
 
@@ -308,7 +558,8 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 260px;
+    height: auto;
+    min-height: 260px;
 }
 
 .lightning-group {
@@ -374,13 +625,15 @@ header {
     clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
 
-.chart-axes {
-    position: absolute;
-    left: 32px;
-    bottom: 0;
-    width: calc(100% - 32px);
-    height: 260px;
-    pointer-events: none;
+.chart-axis {
+    display: flex;
+    gap: clamp(10px, 4vw, 40px);
+    
+    margin-top: 16px;
+    margin-left: clamp(3px, 3%, 30px);
+
+    font-size: 14px;
+    color: black;
 }
 
 .chart-axes::before {
@@ -430,6 +683,87 @@ header {
     color: black;
 }
 
+
+@media (max-width: 768px) {
+    .energy-card {
+        padding: clamp(24px, 5vw, 48px);
+        border-radius: 36px;
+    }
+
+    .chart-wrapper {
+        gap: clamp(12px, 3vw, 24px);
+    }
+
+    .chart-area {
+        padding-left: clamp(12px, 2vw, 16px);
+        min-height: 220px;
+    }
+
+    .chart {
+        height: 220px;
+    }
+
+    .lightning-axis {
+        min-height: 220px;
+    }
+
+    .bar {
+        width: 5px;
+    }
+
+    .bar::after {
+        width: 14px;
+        height: 14px;
+    }
+
+    .chart-axis {
+        padding-left: clamp(20px, 5%, 100px);
+        gap: clamp(8px, 3vw, 30px);
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .energy-card {
+        padding: clamp(16px, 4vw, 32px);
+        border-radius: 24px;
+    }
+
+    .chart-wrapper {
+        gap: clamp(8px, 2vw, 16px);
+        flex-direction: column;
+    }
+
+    .chart-area {
+        padding-left: clamp(8px, 2vw, 12px);
+        min-height: 180px;
+    }
+
+    .chart {
+        height: 180px;
+    }
+
+    .lightning-axis {
+        min-height: 180px;
+    }
+
+    .bar {
+        width: 4px;
+    }
+
+    .bar::after {
+        width: 12px;
+        height: 12px;
+    }
+
+    .chart-axis {
+        padding-left: clamp(10px, 5%, 50px);
+        gap: clamp(5px, 2vw, 12px);
+        font-size: 12px;
+    }
+}
+
 .marquee-container {
     width: 100%;
     overflow: hidden;
@@ -443,23 +777,47 @@ header {
     display: inline-block;
     white-space: nowrap;
     font-family: 'Urbanist', sans-serif;
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     font-weight: 600;
     color: white;
+}
+
+
+@media (max-width: 768px) {
+    .marquee-container {
+        padding: 12px 4%;
+        margin-bottom: 24px;
+    }
+
+    .marquee-text {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+}
+
+
+@media (max-width: 320px) {
+    .marquee-container {
+        padding: 8px 3%;
+        margin-bottom: 16px;
+    }
+
+    .marquee-text {
+        font-size: clamp(0.8rem, 4vw, 1rem);
+    }
 }
 
 .section-5 {
     text-align: left;
-    padding: 60px 24px;
+    padding: 60px 5%;
 }
 
 .section-5 .Header-3 {
     font-family: 'Urbanist', sans-serif;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 600;
-    color: white;
     line-height: 1.1;
     margin-bottom: 40px;
+    max-width: 100%;
     color: white;
 
     padding-left: 23%;
@@ -471,7 +829,7 @@ header {
 .perfume-row {
     display: flex;
     justify-content: center;
-    gap: 60px;
+    gap: clamp(1.8rem, 4vw, 2.5rem);
     flex-wrap: wrap;
 }
 
@@ -479,20 +837,117 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 200px;
+    max-width: clamp(120px, 20%, 200px);
 }
 
 .perfume-item img {
     max-width: 100%;
+    height: auto;
     margin-bottom: 16px;
 }
 
 .perfume-item p {
     font-family: 'Urbanist', sans-serif;
-    font-size: 1.15rem;
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
     font-weight: 300;
     text-align: left;
     margin: 0;
-    max-width: 150px;
-    padding-left: 15px;
+    max-width: 100%;
+    padding-left: 40px;
+    padding-right: 5px;
+}
+
+
+@media (max-width: 768px) {
+    .section-5 {
+        padding: 50px 4%;
+    }
+
+    .section-5 .Header-3 {
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+        padding-left: 15%;
+        max-width: 90%;
+    }
+
+    .perfume-row {
+        gap: clamp(1rem, 3vw, 2rem);
+    }
+
+    .perfume-item {
+        max-width: 160px;
+    }
+
+    .perfume-item p {
+        font-size: clamp(0.85rem, 2vw, 1rem);
+        padding-left: 20px;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .section-5 {
+        padding: 40px 3%;
+    }
+
+    .section-5 .Header-3 {
+        font-size: clamp(1.4rem, 4vw, 1.8rem);
+        padding-left: 5%;
+        max-width: 95%;
+    }
+
+    .perfume-row {
+        gap: clamp(0.5rem, 2vw, 1.2rem);
+        justify-content: flex-start;
+    }
+
+    .perfume-item {
+        max-width: 120px;
+    }
+
+    .perfume-item p {
+        font-size: clamp(0.75rem, 2vw, 0.9rem);
+        padding-left: 10px;
+    }
+}
+
+.marquee-container-2 {
+    width: 100%;
+    overflow: hidden;
+    background: rgb(45, 45, 45);
+    padding: 0 0;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+.marquee-text-2 {
+    display: inline-block;
+    white-space: nowrap;
+    font-family: 'Urbanist', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 600;
+    color: white;
+}
+
+
+@media (max-width: 768px) {
+    .marquee-container-2 {
+        padding: 12px 4%;
+        margin-bottom: 24px;
+    }
+
+    .marquee-text-2 {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+}
+
+
+@media (max-width: 320px) {
+    .marquee-container-2 {
+        padding: 8px 3%;
+        margin-bottom: 16px;
+    }
+
+    .marquee-text-2 {
+        font-size: clamp(0.8rem, 4vw, 1rem);
+    }
 }
