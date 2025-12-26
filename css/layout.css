@@ -136,7 +136,8 @@ header {
     width: 100%;
     max-width: 1200px;
 
-    min-height: clamp(1100px, 70vh, 2000px);
+    min-height: clamp(900px, 70vh, 2000px);
+    height: auto;
     aspect-ratio: 16 / 9;
 
     border: 5px solid rgba(160, 201, 151);
@@ -251,8 +252,8 @@ header {
     .circle-1 {width: 75%;}
     .circle-2 {width: 65%;}
     .circle-3 {width: 55%;}
-    .circle-4 {width: 40%;}
-    .circle-5 {width: 30%;}
+    .circle-4 {width: 45%;}
+    .circle-5 {width: 35%;}
 
     .circle,
     .center {
@@ -260,7 +261,7 @@ header {
     }
 
     .center {
-        width: 85%;
+        width: 55%;
     }
 }
 
@@ -1130,7 +1131,7 @@ header {
 .marquee-container-2 {
     width: 100%;
     overflow: hidden;
-    background: rgb(45, 45, 45);
+    background: rgba(160, 201, 151);
     padding: 0;
     margin-bottom: 32px;
 }
@@ -1146,18 +1147,11 @@ header {
     font-family: 'Urbanist', sans-serif;
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     font-weight: 500;
-    color: rgba(160, 201, 151);
+    color: white;
     padding-right: 50px;
 }
 
-.marquee-text-3 {
-    white-space: nowrap;
-    font-family: 'Urbanist', sans-serif;
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    font-weight: 500;
-    color: rgba(160, 201, 151);
-    padding-right: 50px;
-}
+
 
 
 @keyframes marquee {
